@@ -6,7 +6,7 @@
 %define		pdir	Coro
 %define		pnam	Coro
 Summary:	Coro - do events the coro-way
-Summary(pl):	Coro - obs³uga zdarzeñ na sposób coro
+Summary(pl.UTF-8):   Coro - obsÅ‚uga zdarzeÅ„ na sposÃ³b coro
 Name:		perl-Coro
 Version:	3.41
 Release:	0.1
@@ -26,10 +26,10 @@ This module enables you to create programs using the powerful Event
 model (and module), while retaining the linear style known from simple
 or threaded programs.
 
-%description -l pl
-Ten modu³ pozwala na tworzenie programów przy u¿yciu potê¿nego modelu
-(i modu³u) Event z zachowaniem liniowego stylu znanego z prostych lub
-w±tkowych programów.
+%description -l pl.UTF-8
+Ten moduÅ‚ pozwala na tworzenie programÃ³w przy uÅ¼yciu potÄ™Å¼nego modelu
+(i moduÅ‚u) Event z zachowaniem liniowego stylu znanego z prostych lub
+wÄ…tkowych programÃ³w.
 
 %prep
 %setup -q -n %{pnam}-%{version}
