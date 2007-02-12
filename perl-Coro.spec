@@ -6,7 +6,7 @@
 %define		pdir	Coro
 %define		pnam	Coro
 Summary:	Coro - do events the coro-way
-Summary(pl.UTF-8):   Coro - obsługa zdarzeń na sposób coro
+Summary(pl.UTF-8):	Coro - obsługa zdarzeń na sposób coro
 Name:		perl-Coro
 Version:	3.41
 Release:	0.1
