@@ -17,6 +17,8 @@ Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pnam}-%{version}.tar.gz
 # Source0-md5:	d294dde59c19e22fa63a23d6c9dd9580
 Patch0:		%{pnam}-libc.patch
 URL:		http://search.cpan.org/dist/Coro/
+BuildRequires:	perl-AnyEvent
+BuildRequires:	perl-IO-AIO
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
