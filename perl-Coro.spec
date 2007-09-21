@@ -1,3 +1,4 @@
+# NOTE:		perl-AnyEvent requires perl(Core::{Event,Signal})
 #
 # Conditional build:
 %bcond_without	tests	# do not perform "make test"
