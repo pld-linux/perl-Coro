@@ -9,13 +9,13 @@
 Summary:	Coro - do events the coro-way
 Summary(pl.UTF-8):	Coro - obsługa zdarzeń na sposób coro
 Name:		perl-Coro
-Version:	3.63
+Version:	4.34
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
-Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pnam}-%{version}.tar.gz
-# Source0-md5:	170165d6d463e1d6149654304a47ba0c
+Source0:	http://www.cpan.org/modules/by-module/Coro/%{pnam}-%{version}.tar.gz
+# Source0-md5:	61ee3d551a03286288c6c428e5bd5d23
 URL:		http://search.cpan.org/dist/Coro/
 BuildRequires:	perl-AnyEvent
 BuildRequires:	perl-IO-AIO
