@@ -17,7 +17,7 @@ Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/Coro/%{pnam}-%{version}.tar.gz
 # Source0-md5:	61ee3d551a03286288c6c428e5bd5d23
 URL:		http://search.cpan.org/dist/Coro/
-BuildRequires:	perl-AnyEvent >= 2.7
+BuildRequires:	perl-AnyEvent >= 1:2.7
 BuildRequires:	perl-Event
 BuildRequires:	perl-IO-AIO
 BuildRequires:	perl-devel >= 1:5.8.0
