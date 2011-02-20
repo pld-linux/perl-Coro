@@ -9,19 +9,22 @@
 Summary:	Coro - do events the coro-way
 Summary(pl.UTF-8):	Coro - obsługa zdarzeń na sposób coro
 Name:		perl-Coro
-Version:	4.34
-Release:	5
+Version:	5.26
+Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
-Source0:	http://www.cpan.org/modules/by-module/Coro/%{pnam}-%{version}.tar.gz
-# Source0-md5:	61ee3d551a03286288c6c428e5bd5d23
+Source0:	http://search.cpan.org/CPAN/authors/id/M/ML/MLEHMANN/%{pnam}-%{version}.tar.gz
+# Source0-md5:	96161bae337944c6bdd2b9b5fb811a6f
 URL:		http://search.cpan.org/dist/Coro/
 BuildRequires:	perl-AnyEvent >= 1:2.7
 BuildRequires:	perl-Event
 BuildRequires:	perl-IO-AIO
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
+%if %{with tests}
+BuildRequires:	perl-Guard
+%endif
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -63,10 +66,13 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorarch}/Coro.pm
 %{perl_vendorarch}/Coro
 %dir %{perl_vendorarch}/auto/Coro
+%dir %{perl_vendorarch}/auto/Coro/EV
 %dir %{perl_vendorarch}/auto/Coro/Event
 %dir %{perl_vendorarch}/auto/Coro/State
+%{perl_vendorarch}/auto/Coro/EV/*.bs
 %{perl_vendorarch}/auto/Coro/Event/*.bs
 %{perl_vendorarch}/auto/Coro/State/*.bs
+%attr(755,root,root) %{perl_vendorarch}/auto/Coro/EV/*.so
 %attr(755,root,root) %{perl_vendorarch}/auto/Coro/Event/*.so
 %attr(755,root,root) %{perl_vendorarch}/auto/Coro/State/*.so
 %{_mandir}/man3/*
