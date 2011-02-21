@@ -16,6 +16,7 @@ License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://search.cpan.org/CPAN/authors/id/M/ML/MLEHMANN/%{pnam}-%{version}.tar.gz
 # Source0-md5:	96161bae337944c6bdd2b9b5fb811a6f
+Patch0:		kill-blocked-test.patch
 URL:		http://search.cpan.org/dist/Coro/
 BuildRequires:	perl-AnyEvent >= 2:5.0
 BuildRequires:	perl-EV >= 1:3.3
@@ -39,6 +40,7 @@ wątkowych programów.
 
 %prep
 %setup -q -n %{pnam}-%{version}
+%patch0 -p1
 
 %build
 echo "y" | %{__perl} Makefile.PL \
