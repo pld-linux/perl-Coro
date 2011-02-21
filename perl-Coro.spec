@@ -17,9 +17,9 @@ Group:		Development/Languages/Perl
 Source0:	http://search.cpan.org/CPAN/authors/id/M/ML/MLEHMANN/%{pnam}-%{version}.tar.gz
 # Source0-md5:	96161bae337944c6bdd2b9b5fb811a6f
 URL:		http://search.cpan.org/dist/Coro/
-BuildRequires:	perl-AnyEvent >= 1:2.7
-BuildRequires:	perl-Event
-BuildRequires:	perl-IO-AIO
+BuildRequires:	perl-AnyEvent >= 2:5.0
+BuildRequires:	perl-EV >= 1:3.3
+BuildRequires:	perl-Event >= 0.89
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 %if %{with tests}
@@ -41,15 +41,13 @@ wątkowych programów.
 %setup -q -n %{pnam}-%{version}
 
 %build
-echo "y
-l
-16384" | %{__perl} Makefile.PL \
+echo "y" | %{__perl} Makefile.PL \
 	INSTALLDIRS=vendor
 %{__make} \
 	CC="%{__cc}" \
 	OPTIMIZE="%{rpmcflags}"
 
-%{?with_tests:%{__make} test}
+%{?with_tests:%{__make} -j1 test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
