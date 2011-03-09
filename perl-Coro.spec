@@ -14,17 +14,21 @@ Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
-Source0:	http://search.cpan.org/CPAN/authors/id/M/ML/MLEHMANN/%{pnam}-%{version}.tar.gz
+Source0:	http://www.cpan.org/modules/by-authors/id/M/ML/MLEHMANN/%{pnam}-%{version}.tar.gz
 # Source0-md5:	70c6453f07e991990a00a6ed30db91f4
 Patch0:		kill-blocked-test.patch
 URL:		http://search.cpan.org/dist/Coro/
 BuildRequires:	perl-AnyEvent >= 2:5.0
 BuildRequires:	perl-EV >= 1:3.3
 BuildRequires:	perl-Event >= 0.89
-BuildRequires:	perl-devel >= 1:5.8.0
+BuildRequires:	perl-devel >= 1:5.8.2
 BuildRequires:	rpm-perlprov >= 4.1-13
 %if %{with tests}
-BuildRequires:	perl-Guard
+BuildRequires:	perl-Guard >= 0.5
+BuildRequires:	perl-Scalar-List-Utils
+BuildRequires:	perl-Storable >= 2.15
+BuildRequires:	perl-Time-HiRes
+BuildRequires:	perl-common-sense
 %endif
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -67,12 +71,12 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorarch}/Coro
 %dir %{perl_vendorarch}/auto/Coro
 %dir %{perl_vendorarch}/auto/Coro/EV
+%{perl_vendorarch}/auto/Coro/EV/EV.bs
+%attr(755,root,root) %{perl_vendorarch}/auto/Coro/EV/EV.so
 %dir %{perl_vendorarch}/auto/Coro/Event
+%{perl_vendorarch}/auto/Coro/Event/Event.bs
+%attr(755,root,root) %{perl_vendorarch}/auto/Coro/Event/Event.so
 %dir %{perl_vendorarch}/auto/Coro/State
-%{perl_vendorarch}/auto/Coro/EV/*.bs
-%{perl_vendorarch}/auto/Coro/Event/*.bs
-%{perl_vendorarch}/auto/Coro/State/*.bs
-%attr(755,root,root) %{perl_vendorarch}/auto/Coro/EV/*.so
-%attr(755,root,root) %{perl_vendorarch}/auto/Coro/Event/*.so
-%attr(755,root,root) %{perl_vendorarch}/auto/Coro/State/*.so
-%{_mandir}/man3/*
+%{perl_vendorarch}/auto/Coro/State/State.bs
+%attr(755,root,root) %{perl_vendorarch}/auto/Coro/State/State.so
+%{_mandir}/man3/Coro*.3pm*
