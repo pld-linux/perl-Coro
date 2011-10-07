@@ -23,6 +23,7 @@ BuildRequires:	perl-EV >= 1:3.3
 BuildRequires:	perl-Event >= 1.08
 BuildRequires:	perl-devel >= 1:5.8.2
 BuildRequires:	rpm-perlprov >= 4.1-13
+BuildRequires:	sed >= 4.0
 %if %{with tests}
 BuildRequires:	perl-Guard >= 0.5
 BuildRequires:	perl-Storable >= 2.15
@@ -44,6 +45,8 @@ wątkowych programów.
 %prep
 %setup -q -n %{pnam}-%{version}
 %patch0 -p1
+
+%{__sed} -i "s^/opt/bin/perl^%{_bindir}/perl^" Coro/jit*pl
 
 %build
 echo "y" | %{__perl} Makefile.PL \
