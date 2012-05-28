@@ -1,4 +1,3 @@
-# NOTE:		perl-AnyEvent requires perl(Core::{Event,Signal})
 #
 # Conditional build:
 %bcond_without	tests	# do not perform "make test"
@@ -9,13 +8,13 @@
 Summary:	Coro - do events the coro-way
 Summary(pl.UTF-8):	Coro - obsługa zdarzeń na sposób coro
 Name:		perl-Coro
-Version:	6.06
-Release:	2
+Version:	6.08
+Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-authors/id/M/ML/MLEHMANN/%{pnam}-%{version}.tar.gz
-# Source0-md5:	2ee54f58bced7471f77149e97c73a94f
+# Source0-md5:	86bcfac8bf53c9fe979106692b82b8b1
 Patch0:		kill-blocked-test.patch
 URL:		http://search.cpan.org/dist/Coro/
 BuildRequires:	perl-AnyEvent >= 2:5.0
@@ -25,6 +24,8 @@ BuildRequires:	perl-devel >= 1:5.8.2
 BuildRequires:	rpm-perlprov >= 4.1-13
 BuildRequires:	sed >= 4.0
 %if %{with tests}
+BuildRequires:	perl-AnyEvent-Impl-EV
+BuildRequires:	perl-AnyEvent-Impl-Event
 BuildRequires:	perl-Guard >= 0.5
 BuildRequires:	perl-Storable >= 2.15
 BuildRequires:	perl-Time-HiRes
@@ -68,7 +69,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc Changes INSTALL README README.linux-glibc
+%doc COPYING Changes INSTALL README README.linux-glibc
 %{perl_vendorarch}/Coro.pm
 %{perl_vendorarch}/Coro
 %dir %{perl_vendorarch}/auto/Coro
