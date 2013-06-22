@@ -18,7 +18,7 @@ Source0:	http://www.cpan.org/modules/by-authors/id/M/ML/MLEHMANN/%{pnam}-%{versi
 Patch0:		kill-blocked-test.patch
 URL:		http://search.cpan.org/dist/Coro/
 BuildRequires:	perl-AnyEvent >= 2:5.0
-BuildRequires:	perl-EV >= 1:3.3
+BuildRequires:	perl-EV >= 1:4.0
 BuildRequires:	perl-Event >= 1.08
 BuildRequires:	perl-devel >= 1:5.8.2
 BuildRequires:	rpm-perlprov >= 4.1-13
@@ -31,6 +31,11 @@ BuildRequires:	perl-Storable >= 2.15
 BuildRequires:	perl-Time-HiRes
 BuildRequires:	perl-common-sense
 %endif
+Requires:	perl-AnyEvent >= 2:5.0
+Requires:	perl-BDB >= 1.5
+Requires:	perl-EV >= 1:4.0
+Requires:	perl-Guard >= 0.5
+Requires:	perl-Storable >= 2.15
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
