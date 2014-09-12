@@ -79,12 +79,9 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorarch}/Coro
 %dir %{perl_vendorarch}/auto/Coro
 %dir %{perl_vendorarch}/auto/Coro/EV
-%{perl_vendorarch}/auto/Coro/EV/EV.bs
 %attr(755,root,root) %{perl_vendorarch}/auto/Coro/EV/EV.so
 %dir %{perl_vendorarch}/auto/Coro/Event
-%{perl_vendorarch}/auto/Coro/Event/Event.bs
 %attr(755,root,root) %{perl_vendorarch}/auto/Coro/Event/Event.so
 %dir %{perl_vendorarch}/auto/Coro/State
-%{perl_vendorarch}/auto/Coro/State/State.bs
 %attr(755,root,root) %{perl_vendorarch}/auto/Coro/State/State.so
 %{_mandir}/man3/Coro*.3pm*
