@@ -4,25 +4,26 @@
 #
 %define		pdir	Coro
 %define		pnam	Coro
-%define		pver	6.511
 Summary:	Coro - do events the coro-way
 Summary(pl.UTF-8):	Coro - obsługa zdarzeń na sposób coro
 Name:		perl-Coro
-Version:	6.51.1
+Version:	6.57
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
-Source0:	http://www.cpan.org/modules/by-authors/id/M/ML/MLEHMANN/%{pnam}-%{pver}.tar.gz
-# Source0-md5:	bcad7051f573fed680eaf72e64e2140e
+Source0:	http://www.cpan.org/modules/by-authors/id/M/ML/MLEHMANN/%{pnam}-%{version}.tar.gz
+# Source0-md5:	fa5970a2a2f3df9d68d4369c7dde1a55
 Patch0:		kill-blocked-test.patch
-Patch1:		coro-5.24.patch
-URL:		http://search.cpan.org/dist/Coro/
+URL:		https://metacpan.org/dist/Coro
 BuildRequires:	perl-AnyEvent >= 2:5.0
+BuildRequires:	perl-Canary-Stability
 BuildRequires:	perl-EV >= 1:4.0
 BuildRequires:	perl-Event >= 1.08
-BuildRequires:	perl-devel >= 1:5.8.2
+BuildRequires:	perl-ExtUtils-MakeMaker >= 6.52
+BuildRequires:	perl-devel >= 1:5.8.9
 BuildRequires:	rpm-perlprov >= 4.1-13
+BuildRequires:	rpmbuild(macros) >= 1.745
 BuildRequires:	sed >= 4.0
 %if %{with tests}
 BuildRequires:	perl-AnyEvent-Impl-EV
@@ -50,9 +51,8 @@ Ten moduł pozwala na tworzenie programów przy użyciu potężnego modelu
 wątkowych programów.
 
 %prep
-%setup -q -n %{pnam}-%{pver}
+%setup -q -n %{pnam}-%{version}
 %patch0 -p1
-%patch1 -p1
 
 %{__sed} -i "s^/opt/bin/perl^%{_bindir}/perl^" Coro/jit*pl
 
