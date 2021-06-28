@@ -8,7 +8,7 @@ Summary:	Coro - do events the coro-way
 Summary(pl.UTF-8):	Coro - obsługa zdarzeń na sposób coro
 Name:		perl-Coro
 Version:	6.57
-Release:	1
+Release:	2
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
@@ -57,7 +57,12 @@ wątkowych programów.
 %{__sed} -i "s^/opt/bin/perl^%{_bindir}/perl^" Coro/jit*pl
 
 %build
-echo "y" | %{__perl} Makefile.PL \
+# CORO_INTERFACE: use setjmp on x32 (asm fails tests)
+echo "y" | \
+%ifarch x32
+	CORO_INTERFACE=s \
+%endif
+%{__perl} Makefile.PL \
 	INSTALLDIRS=vendor
 %{__make} \
 	CC="%{__cc}" \
