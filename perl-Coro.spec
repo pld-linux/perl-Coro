@@ -52,7 +52,7 @@ wątkowych programów.
 
 %prep
 %setup -q -n %{pnam}-%{version}
-%patch0 -p1
+%patch -P0 -p1
 
 %{__sed} -i "s^/opt/bin/perl^%{_bindir}/perl^" Coro/jit*pl
 
