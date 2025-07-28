@@ -8,7 +8,7 @@ Summary:	Coro - do events the coro-way
 Summary(pl.UTF-8):	Coro - obsługa zdarzeń na sposób coro
 Name:		perl-Coro
 Version:	6.57
-Release:	7
+Release:	8
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
@@ -64,7 +64,7 @@ echo "y" | \
 %endif
 %{__perl} Makefile.PL \
 	INSTALLDIRS=vendor
-%{__make} \
+%{__make} -j1 \
 	CC="%{__cc}" \
 	OPTIMIZE="%{rpmcflags}"
 
@@ -73,7 +73,7 @@ echo "y" | \
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install \
+%{__make} -j1 install \
 	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
